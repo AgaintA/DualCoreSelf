@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\caption{Quantitative comparison across update mechanisms. Lower is better for all metrics. Values are mean $\pm$ standard deviation across repeated seeds.}
+\label{tab:quantitative-comparison}
+\begin{tabular}{lccccc}
+\hline
+Method & Self-ledger Volatility & False Self-Update Rate & Detection Delay (Wear) & Detection Delay (Deformation) & Unknown Overcommitment \\
+\hline
+Direct residual-to-self & 0.0041 $\pm$ 0.0002 & 1.0000 $\pm$ 0.0000 & 0.0000 $\pm$ 0.0000 & 0.0000 $\pm$ 0.0000 & 1.0000 $\pm$ 0.0000 \\
+HMM updater & 0.0000 $\pm$ 0.0000 & 0.2000 $\pm$ 0.4000 & 5.4000 $\pm$ 1.0198 & 1.6000 $\pm$ 0.4899 & 1.0000 $\pm$ 0.0000 \\
+Proposed Dual-Core mechanism & 0.0000 $\pm$ 0.0000 & 0.0000 $\pm$ 0.0000 & 8.8000 $\pm$ 2.3152 & 7.8000 $\pm$ 2.6382 & 0.0000 $\pm$ 0.0000 \\
+Thresholded EMA & 0.0000 $\pm$ 0.0000 & 1.0000 $\pm$ 0.0000 & 34.6000 $\pm$ 2.0591 & 1.0000 $\pm$ 0.0000 & 1.0000 $\pm$ 0.0000 \\
+\hline
+\end{tabular}
+\end{table*}

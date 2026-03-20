@@ -1,0 +1,22 @@
+[experiment]
+trial_steps = 120
+seeds = [7, 19, 31, 43, 59]
+output_dir = "outputs"
+audit_seed = 7
+
+[dual_core]
+short_alpha = 0.45
+long_alpha = 0.10
+score_decay = 0.80
+
+[gate]
+confirm_confidence = 0.55
+confirm_steps = 4
+cooldown_steps = 8
+
+[baselines]
+direct_step = 0.080
+ema_alpha = 0.20
+ema_threshold = 0.18
+ema_step = 0.090
+hmm_commit_threshold = 0.68

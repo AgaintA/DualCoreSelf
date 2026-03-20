@@ -1,0 +1,32 @@
+flowchart LR
+    R[Residual Stream r_t] --> F[Self-Model Interpreter F]
+    X[Auxiliary Context x_t] --> F
+
+    subgraph InterpreterCore[Diagnostic Core]
+        F --> H[Hypothesis Scores\nnominal | disturbance | wear | deformation | unknown]
+        H --> M[Diagnostic State Machine\nnormal -> suspect -> probe -> confirmed or unknown]
+    end
+
+    M --> G{Write Gate gamma(i_t)}
+    G -->|deny| A[Audit Trail / Keep Ledger Stable]
+    G -->|allow| W[Persistent Rewrite G]
+
+    subgraph LedgerCore[Persistent Self-State Core]
+        S[(Self Ledger s_t)] --> W
+        W --> S2[(Updated Self Ledger s_t+1)]
+    end
+
+    S2 --> C[Future Control / Diagnosis / Adaptation]
+    A --> C
+
+    classDef signal fill:#f3f4f6,stroke:#6b7280,color:#111827
+    classDef diagnostic fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef gate fill:#fef3c7,stroke:#d97706,color:#92400e
+    classDef ledger fill:#dcfce7,stroke:#059669,color:#065f46
+    classDef outcome fill:#ede9fe,stroke:#7c3aed,color:#5b21b6
+
+    class R,X signal
+    class F,H,M diagnostic
+    class G gate
+    class S,W,S2,A ledger
+    class C outcome
